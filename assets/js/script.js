@@ -1,3 +1,16 @@
+//I'm working out how to structure
+
+const questionContainer = document.getElementById('question-container');
+const answerButtonsElement = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-button');
+
+if (!questionContainer || !answerButtonsElement || !nextButton) {
+  throw new Error('One or more DOM elements could not be found.');
+}
+
+let currentQuestionIndex = 0;
+
+
 // Define an array to hold your quiz questions
 const questions = [
     {
@@ -25,18 +38,8 @@ const questions = [
         options: ["Good Omens, Good Intentions,	Interesting Times, The Sandman"],
         correctAnswer: "Good Omens" 
     }
-]
+];
 // I plan to add more questions to the array
-
-const questionContainer = document.getElementById('question-container');
-const answerButtonsElement = document.getElementById('answer-buttons');
-const nextButton = document.getElementById('next-button');
-
-if (!questionContainer || !answerButtonsElement || !nextButton) {
-  throw new Error('One or more DOM elements could not be found.');
-}
-
-let currentQuestionIndex = 0;
 
 nextButton.addEventListener('click', () => {
     if (!questions || questions.length === 0) {
