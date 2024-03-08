@@ -104,9 +104,9 @@ const questions = [{
 
 // Defining game elements
 
-const questionElement = document.getElementById(question);
-const answerButtons = document.getElementById(answer - buttons);
-const nextButton = document.getElementById(next - btn);
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer - buttons");
+const nextButton = document.getElementById("next - btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -164,6 +164,8 @@ function selectAnswer() {
     });
     nextButton.style.display = "block";
 }
+
+// completeing the question cycle
 
 function showScore() {
     resetState();
