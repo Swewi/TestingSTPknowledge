@@ -31,6 +31,8 @@ h1 {
   color: #a00e79;
 }
 
+/* Styling the game area */
+
 .game-area {
   background: #fff;
   width: 90%;
@@ -66,9 +68,13 @@ h1 {
   transition: all 0.3s;
 }
 
-.btn:hover {
+.btn:hover:not([disabled]) {
   background: #222;
   color: #fff;
+}
+
+.btn:disabled {
+  cursor: no-drop;
 }
 
 #next-btn {
@@ -82,4 +88,12 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+
+.correct {
+  background: green;
+}
+
+.incorrect {
+  background: red;
 }
