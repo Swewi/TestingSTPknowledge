@@ -1,104 +1,104 @@
 // Define an array to hold your quiz questions
-const questions = [{
-        question: "Who do the Borogravians worship?",
-        answers: [{
-                text: "Om",
-                correct: false
-            },
-            {
-                text: "Nugget",
-                correct: false
-            },
-            {
-                text: "Nuggan",
-                correct: true
-            },
-            {
-                text: "Anoia",
-                correct: false
-            },
-        ]
-    },
-    {
-        question: "Whats the name of the Terry Pratchett's book set on a fictional Pacific Island devistated by a tsumami?",
-        answers: [{
-                text: "Nation",
-                correct: true
-            },
-            {
-                text: "Island",
-                correct: false
-            },
-            {
-                text: "Country",
-                correct: false
-            },
-            {
-                text: "State",
-                correct: false
-            },
-        ]
-    },
-    {
-        question: "Sam Vimes fights the summoning dark with?",
-        answers: [{
-                text: "Patrolling Dark",
-                correct: false
-            },
-            {
-                text: "Guarding Dark",
-                correct: true
-            },
-            {
-                text: "Protecting Dark",
-                correct: false
-            },
-            {
-                text: "Shielding Dark",
-                correct: false
-            },
-        ]
-    },
-    {
-        question: "What is the Ankh Morpork economic standard after 'Making Money'?",
-        answers: [{
-                text: "Gold",
-                correct: false
-            },
-            {
-                text: "Stamps",
-                correct: false
-            },
-            {
-                text: "Cabbages",
-                correct: false
-            },
-            {
-                text: "Golems",
-                correct: true
-            },
-        ]
-    },
-    {
-        question: "Terry Pratchett colaborated with Neil Gaman on which book?",
-        answers: [{
-                text: "Good Omens",
-                correct: true
-            },
-            {
-                text: "The Sandman",
-                correct: false
-            },
-            {
-                text: "Good Intentions",
-                correct: false
-            },
-            {
-                text: "Interesting Times",
-                correct: false
-            },
-        ]
-    }
+let originalQuestions = [{
+    question: "Who do the Borogravians worship?",
+    answers: [{
+            text: "Om",
+            correct: false
+        },
+        {
+            text: "Nugget",
+            correct: false
+        },
+        {
+            text: "Nuggan",
+            correct: true
+        },
+        {
+            text: "Anoia",
+            correct: false
+        },
+    ]
+},
+{
+    question: "Whats the name of the Terry Pratchett's book set on a fictional Pacific Island devistated by a tsumami?",
+    answers: [{
+            text: "Nation",
+            correct: true
+        },
+        {
+            text: "Island",
+            correct: false
+        },
+        {
+            text: "Country",
+            correct: false
+        },
+        {
+            text: "State",
+            correct: false
+        },
+    ]
+},
+{
+    question: "Sam Vimes fights the summoning dark with?",
+    answers: [{
+            text: "Patrolling Dark",
+            correct: false
+        },
+        {
+            text: "Guarding Dark",
+            correct: true
+        },
+        {
+            text: "Protecting Dark",
+            correct: false
+        },
+        {
+            text: "Shielding Dark",
+            correct: false
+        },
+    ]
+},
+{
+    question: "What is the Ankh Morpork economic standard after 'Making Money'?",
+    answers: [{
+            text: "Gold",
+            correct: false
+        },
+        {
+            text: "Stamps",
+            correct: false
+        },
+        {
+            text: "Cabbages",
+            correct: false
+        },
+        {
+            text: "Golems",
+            correct: true
+        },
+    ]
+},
+{
+    question: "Terry Pratchett colaborated with Neil Gaman on which book?",
+    answers: [{
+            text: "Good Omens",
+            correct: true
+        },
+        {
+            text: "The Sandman",
+            correct: false
+        },
+        {
+            text: "Good Intentions",
+            correct: false
+        },
+        {
+            text: "Interesting Times",
+            correct: false
+        },
+    ]
+}
 ];
 // I plan to add more questions to the array
 
@@ -114,14 +114,30 @@ const homeButton = document.getElementById("home-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
+let questions = originalQuestions.slice(); // Copy the original questions array
+
+// Shuffle function
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Shuffle the questions array
+shuffle(questions);
+
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    // Select the first three questions from the shuffled array
+    questions = questions.slice(0, 3);
     showQuestion();
 }
 
-// Getting username working
+// Making username/front page work
 let username;
 
 enterButton.onclick = function(){
@@ -183,6 +199,12 @@ function selectAnswer(e) {
 }
 
 // Completing the question cycle
+
+// Add resetQuestions function to reset the questions array to its original state
+function resetQuestions() {
+    questions = originalQuestions.slice();
+}
+
 function showScore() {
     resetState();
     questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
@@ -197,6 +219,7 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
+        resetQuestions(); // Reset the questions array
     }
 }
 
@@ -204,6 +227,7 @@ nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
+        homeButton.style.display = "none";
         startQuiz();
     }
 });
