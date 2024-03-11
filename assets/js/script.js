@@ -2,16 +2,16 @@
 const questions = [{
         question: "Who do the Borogravians worship?",
         answers: [{
-                text: "Nuggan",
-                correct: true
-            },
-            {
                 text: "Om",
                 correct: false
             },
             {
                 text: "Nugget",
                 correct: false
+            },
+            {
+                text: "Nuggan",
+                correct: true
             },
             {
                 text: "Anoia",
@@ -42,12 +42,12 @@ const questions = [{
     {
         question: "Sam Vimes fights the summoning dark with?",
         answers: [{
-                text: "Gaurding Dark",
-                correct: true
+                text: "Patrolling Dark",
+                correct: false
             },
             {
-                text: "Sentry Dark",
-                correct: false
+                text: "Gaurding Dark",
+                correct: true
             },
             {
                 text: "Protecting Dark",
@@ -62,10 +62,6 @@ const questions = [{
     {
         question: "What is the Ankh Morpork economic standard after 'Making Money'?",
         answers: [{
-                text: "Golems",
-                correct: true
-            },
-            {
                 text: "Gold",
                 correct: false
             },
@@ -77,6 +73,10 @@ const questions = [{
                 text: "Cabbages",
                 correct: false
             },
+            {
+                text: "Golems",
+                correct: true
+            },
         ]
     },
     {
@@ -86,15 +86,15 @@ const questions = [{
                 correct: true
             },
             {
+                text: "The Sandman",
+                correct: false
+            },
+            {
                 text: "Good Intentions",
                 correct: false
             },
             {
                 text: "Interesting Times",
-                correct: false
-            },
-            {
-                text: "The Sandman",
                 correct: false
             },
         ]
