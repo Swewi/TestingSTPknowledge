@@ -22,7 +22,7 @@ body h1 {
   font-size: xx-large;
   padding-top: 3rem;
   letter-spacing: 2px;
-  color: #000;
+  color: rgb(255, 255, 255);
 }
 
 .fa-hat-wizard {
@@ -36,6 +36,13 @@ body h1 {
   display: block;
   padding: 30px;
   border-radius: 10px;
+}
+
+.username h2 {
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: #000;
+  font-weight: 600;
 }
 
 input {
