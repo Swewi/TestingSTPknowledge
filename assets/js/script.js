@@ -46,7 +46,7 @@ const questions = [{
                 correct: false
             },
             {
-                text: "Gaurding Dark",
+                text: "Guarding Dark",
                 correct: true
             },
             {
@@ -109,6 +109,7 @@ const nextButton = document.getElementById("next-btn");
 const enterButton = document.getElementById("enter-btn");
 const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
+const homeButton = document.getElementById("home-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -132,7 +133,7 @@ enterButton.onclick = function(){
         // Start the quiz
         startQuiz();
     } else {
-        alert('Please enter your name.'); // Show an alert if username is empty
+        alert("Please enter your name!"); // Show an alert if username is empty
     }
 }
 
@@ -187,6 +188,7 @@ function showScore() {
     questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again?";
     nextButton.style.display = "block";
+    homeButton.style.display = "block";
 }
 
 function handleNextButton() {
@@ -205,4 +207,15 @@ nextButton.addEventListener("click", () => {
         startQuiz();
     }
 });
+
+// Returning to go back to username section
+function goToUsernameSection() {
+    quizSection.style.display = "none";
+    usernameSection.style.display = "block";
+    homeButton.style.display = "none";
+    document.getElementById("username").value = '';
+};
+
+homeButton.addEventListener("click", goToUsernameSection);
+
 startQuiz();

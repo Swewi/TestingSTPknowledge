@@ -1,7 +1,6 @@
 /* Google Fonts import*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 
-
 /*Asterisk wildcard selector to override default styles added by the browser*/
 * {
   padding: 0;
@@ -65,7 +64,7 @@ input {
 /* Styling the game area */
 
 .game-area {
-  background: rgb(134, 130, 123, .5);
+  background: rgba(30, 29, 27, 0.2);
   width: 90%;
   max-width: 700px;
   height: 90%;
@@ -114,6 +113,19 @@ input {
 #next-btn {
   background: #06450c;
   color: #fff;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+}
+
+#home-btn {
+  background: #8df0f4;
+  color: #000;
   font-weight: 500;
   width: 150px;
   border: 0;
