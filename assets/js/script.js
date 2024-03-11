@@ -103,10 +103,12 @@ const questions = [{
 // I plan to add more questions to the array
 
 // Defining game elements
-
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const enterButton = document.getElementById("enter-btn");
+const usernameSection = document.getElementById("username-section");
+const quizSection = document.getElementById("quiz-section");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -118,8 +120,23 @@ function startQuiz() {
     showQuestion();
 }
 
-// Making the buttons function, and change
+// Getting username working
+let username;
 
+enterButton.onclick = function(){
+    username = document.getElementById("username").value;
+    if (username.trim() !== '') { // Check if username is not empty
+        // Hide username section and show quiz section
+        usernameSection.style.display = "none";
+        quizSection.style.display = "block";
+        // Start the quiz
+        startQuiz();
+    } else {
+        alert('Please enter your name.'); // Show an alert if username is empty
+    }
+}
+
+// Making the buttons function, and change
 function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -138,8 +155,7 @@ function showQuestion() {
     });
 }
 
-// Reseting the answer button options
-
+// Resetting the answer button options
 function resetState() {
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
@@ -165,11 +181,10 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
-// completeing the question cycle
-
+// Completing the question cycle
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again?";
     nextButton.style.display = "block";
 }
@@ -189,6 +204,5 @@ nextButton.addEventListener("click", () => {
     } else {
         startQuiz();
     }
-})
-
+});
 startQuiz();

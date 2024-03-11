@@ -23,22 +23,18 @@
     <i class="fa-solid fa-hat-wizard"></i> Test your Terry Pratchett Knowledge <i class="fa-solid fa-hat-wizard"></i>
   </h1>
 
-  <div class="username">
+  <div id="username-section" class="username">
     <h2>Hi, what's your name?</h2>
-    <input placeholder="Please enter your name">
+    <input id="username" type="text" placeholder="Please enter your name">
     <button id="enter-btn">Enter</button>
   </div>
 
   <!-- Game area on page -->
-
-  <div class="game-area">
+  <div id="quiz-section" class="game-area" style="display:none;">
     <div class="quiz">
       <h2 id="question">Question goes here</h2>
       <div id="answer-buttons">
-        <button class="btn">answer 1</button>
-        <button class="btn">answer 2</button>
-        <button class="btn">answer 3</button>
-        <button class="btn">answer 4</button>
+        <!-- Answer buttons will be generated dynamically -->
       </div>
       <button id="next-btn">Next</button>
     </div>
@@ -47,8 +43,7 @@
   <!-- Script section, including font-awesome -->
 
   <script src="https://kit.fontawesome.com/1f32015eb0.js" crossorigin="anonymous"></script>
-  <script src="assets/js/script.js">
-  </script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

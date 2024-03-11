@@ -65,12 +65,12 @@ input {
 /* Styling the game area */
 
 .game-area {
-  background: rgb(134, 130, 123);
+  background: rgb(134, 130, 123, .5);
   width: 90%;
   max-width: 700px;
   height: 90%;
   max-height: 800px;
-  margin: 100px auto 0;
+  margin: 3rem auto 0;
   border-radius: 10px;
   padding: 30px;
 }
