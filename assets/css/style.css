@@ -30,6 +30,38 @@ body h1 {
   color: #000;
 }
 
+/* Styling the name input */
+
+.username {
+  text-align: center;
+  display: block;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+input {
+  width: 80%;
+  max-width: 300px;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #d5d4d4;
+}
+
+#enter-btn {
+  background: #06450c;
+  color: #fff;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 10px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+}
+
 /* Styling the game area */
 
 .game-area {
@@ -80,7 +112,7 @@ body h1 {
 }
 
 #next-btn {
-  background: #043c0a;
+  background: #06450c;
   color: #fff;
   font-weight: 500;
   width: 150px;
