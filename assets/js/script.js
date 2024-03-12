@@ -100,7 +100,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "What was the name of the Sword Rincewind uses in Colour of Magic?",
+        question: "What was the name of the magical sword Rincewind uses in Colour of Magic?",
         answers: [{
                 text: "Krying",
                 correct: false
