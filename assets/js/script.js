@@ -109,7 +109,6 @@ const nextButton = document.getElementById("next-btn");
 const enterButton = document.getElementById("enter-btn");
 const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
-const homeButton = document.getElementById("home-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -124,7 +123,6 @@ function shuffle(array) {
     }
     return array;
 }
-
 // Shuffle the questions array
 shuffle(questions);
 
@@ -132,11 +130,16 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    resetQuestions(); // Reset the questions array
     // Select the first three questions from the shuffled array
     questions = questions.slice(0, 3);
     showQuestion();
 }
-
+// Add resetQuestions function to reset the questions array to its original state
+function resetQuestions() {
+    questions = originalQuestions.slice();
+    shuffle(questions); // Shuffle the questions again after resetting
+}
 // Making username/front page work
 let username;
 
@@ -152,7 +155,6 @@ enterButton.onclick = function(){
         alert("Please enter your name!"); // Show an alert if username is empty
     }
 }
-
 // Making the buttons function, and change
 function showQuestion() {
     resetState();
@@ -171,7 +173,6 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 }
-
 // Resetting the answer button options
 function resetState() {
     nextButton.style.display = "none";
@@ -197,9 +198,7 @@ function selectAnswer(e) {
     });
     nextButton.style.display = "block";
 }
-
 // Completing the question cycle
-
 // Add resetQuestions function to reset the questions array to its original state
 function resetQuestions() {
     questions = originalQuestions.slice();
