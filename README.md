@@ -20,3 +20,5 @@ The colour choices made are loosely based on Rincwind and some of his comments, 
 
 ## Features
 
+As a multi-choice question based quiz the features of this site are quite minimal.  I have done this on purpose, I wanted to ensure I had a workable site that functioned the way I needed it to on the due date.  As such it is a very simple interface that allows you to enter your name, and asks 15 random questions from the available list, the questions asked are not repeated within a round, and are randomised within the list.
+

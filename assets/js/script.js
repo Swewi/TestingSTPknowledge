@@ -400,8 +400,6 @@ let originalQuestions = [{
         ]
     }
 ];
-// I plan to add more questions to the array
-
 // Defining game elements
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
