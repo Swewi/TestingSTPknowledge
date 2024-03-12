@@ -243,7 +243,7 @@ function resetQuestions() {
 }
 // Making username/front page work
 let username;
-
+// Username entry and storing
 enterButton.onclick = function () {
     username = document.getElementById("username").value;
     if (username.trim() !== '') { // Check if username is not empty
