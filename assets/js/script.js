@@ -1,104 +1,204 @@
 // Define an array to hold your quiz questions
 let originalQuestions = [{
-    question: "Who do the Borogravians worship?",
-    answers: [{
-            text: "Om",
-            correct: false
-        },
-        {
-            text: "Nugget",
-            correct: false
-        },
-        {
-            text: "Nuggan",
-            correct: true
-        },
-        {
-            text: "Anoia",
-            correct: false
-        },
-    ]
-},
-{
-    question: "Whats the name of the Terry Pratchett's book set on a fictional Pacific Island devistated by a tsumami?",
-    answers: [{
-            text: "Nation",
-            correct: true
-        },
-        {
-            text: "Island",
-            correct: false
-        },
-        {
-            text: "Country",
-            correct: false
-        },
-        {
-            text: "State",
-            correct: false
-        },
-    ]
-},
-{
-    question: "Sam Vimes fights the summoning dark with?",
-    answers: [{
-            text: "Patrolling Dark",
-            correct: false
-        },
-        {
-            text: "Guarding Dark",
-            correct: true
-        },
-        {
-            text: "Protecting Dark",
-            correct: false
-        },
-        {
-            text: "Shielding Dark",
-            correct: false
-        },
-    ]
-},
-{
-    question: "What is the Ankh Morpork economic standard after 'Making Money'?",
-    answers: [{
-            text: "Gold",
-            correct: false
-        },
-        {
-            text: "Stamps",
-            correct: false
-        },
-        {
-            text: "Cabbages",
-            correct: false
-        },
-        {
-            text: "Golems",
-            correct: true
-        },
-    ]
-},
-{
-    question: "Terry Pratchett colaborated with Neil Gaman on which book?",
-    answers: [{
-            text: "Good Omens",
-            correct: true
-        },
-        {
-            text: "The Sandman",
-            correct: false
-        },
-        {
-            text: "Good Intentions",
-            correct: false
-        },
-        {
-            text: "Interesting Times",
-            correct: false
-        },
-    ]
-}
+        question: "Who do the Borogravians worship?",
+        answers: [{
+                text: "Om",
+                correct: false
+            },
+            {
+                text: "Nugget",
+                correct: false
+            },
+            {
+                text: "Nuggan",
+                correct: true
+            },
+            {
+                text: "Anoia",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Whats the name of the Terry Pratchett's book set on a fictional Pacific Island devistated by a tsumami?",
+        answers: [{
+                text: "Nation",
+                correct: true
+            },
+            {
+                text: "Island",
+                correct: false
+            },
+            {
+                text: "Country",
+                correct: false
+            },
+            {
+                text: "State",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Sam Vimes fights the summoning dark with?",
+        answers: [{
+                text: "Patrolling Dark",
+                correct: false
+            },
+            {
+                text: "Guarding Dark",
+                correct: true
+            },
+            {
+                text: "Protecting Dark",
+                correct: false
+            },
+            {
+                text: "Shielding Dark",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What is the Ankh Morpork economic standard after 'Making Money'?",
+        answers: [{
+                text: "Gold",
+                correct: false
+            },
+            {
+                text: "Stamps",
+                correct: false
+            },
+            {
+                text: "Cabbages",
+                correct: false
+            },
+            {
+                text: "Golems",
+                correct: true
+            },
+        ]
+    },
+    {
+        question: "Terry Pratchett colaborated with Neil Gaman on which book?",
+        answers: [{
+                text: "Good Omens",
+                correct: true
+            },
+            {
+                text: "The Sandman",
+                correct: false
+            },
+            {
+                text: "Good Intentions",
+                correct: false
+            },
+            {
+                text: "Interesting Times",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What was the name of the Sword Rincewind uses in Colour of Magic?",
+        answers: [{
+                text: "Krying",
+                correct: false
+            },
+            {
+                text: "Krunch",
+                correct: false
+            },
+            {
+                text: "Kring",
+                correct: true
+            },
+            {
+                text: "Krull",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What is the petname Moist uses for his wife?",
+        answers: [{
+                text: "Dora",
+                correct: false
+            },
+            {
+                text: "Spike",
+                correct: true
+            },
+            {
+                text: "Belle",
+                correct: false
+            },
+            {
+                text: "Sweetie",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "The PC game 'Discworld' was released in which year?",
+        answers: [{
+                text: "1994",
+                correct: false
+            },
+            {
+                text: "1995",
+                correct: true
+            },
+            {
+                text: "1996",
+                correct: false
+            },
+            {
+                text: "1997",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Who becomes Emporor of The Counterweight Continent at the end of Interesting Times?",
+        answers: [{
+                text: "Cohen the Barbiarian",
+                correct: true
+            },
+            {
+                text: "Twoflower",
+                correct: false
+            },
+            {
+                text: "Rincewind",
+                correct: false
+            },
+            {
+                text: "Lord Hong",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Lu-Tze is a follower of 'The Way', who is the way named after?",
+        answers: [{
+                text: "Mrs Proust",
+                correct: false
+            },
+            {
+                text: "Mrs. Arcanum",
+                correct: false
+            },
+            {
+                text: "Mrs. Cake",
+                correct: false
+            },
+            {
+                text: "Mrs. Cosmopolite",
+                correct: true
+            },
+        ]
+    }
 ];
 // I plan to add more questions to the array
 
@@ -125,14 +225,15 @@ function shuffle(array) {
 }
 // Shuffle the questions array
 shuffle(questions);
-
+// Start function
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
+    shuffle(questions); // Shuffle the questions again after resetting
     // Select the first three questions from the shuffled array
-    questions = questions.slice(0, 3);
+    questions = questions.slice(0, 7);
     showQuestion();
 }
 // Add resetQuestions function to reset the questions array to its original state
@@ -143,7 +244,7 @@ function resetQuestions() {
 // Making username/front page work
 let username;
 
-enterButton.onclick = function(){
+enterButton.onclick = function () {
     username = document.getElementById("username").value;
     if (username.trim() !== '') { // Check if username is not empty
         // Hide username section and show quiz section
@@ -230,4 +331,4 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-startQuiz();  
+startQuiz();
