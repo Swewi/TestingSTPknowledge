@@ -64,3 +64,15 @@ I have checked the Javascript using the console within dev tools - There were so
 I have tried to ensure regular commits occured and that things have been commented correctly.
 
 ![Lighthouse output.](assets/images/stpaccess.png)
+
+## Browser testing
+Google Chrome - Works well, looks good, can't find any issues.
+
+Edge - Works well, looks good, can't find any issues.
+
+Firefox - Works well, looks good, can't find any issues.
+
+Opera GX - Works well, looks good, can't find any issues.
+
+I haven't been able to check Safari.
+
