@@ -227,19 +227,8 @@ nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        homeButton.style.display = "none";
         startQuiz();
     }
 });
 
-// Returning to go back to username section
-function goToUsernameSection() {
-    quizSection.style.display = "none";
-    usernameSection.style.display = "block";
-    homeButton.style.display = "none";
-    document.getElementById("username").value = '';
-};
-
-homeButton.addEventListener("click", goToUsernameSection);
-
-startQuiz();
+startQuiz();  
