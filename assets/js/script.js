@@ -1,6 +1,6 @@
 // Define an array to hold your quiz questions
 let originalQuestions = [{
-        question: "Who do the Borogravians worship?",
+        question: "Who do the Borogravians worship in 'Monstrous Regiment'?",
         answers: [{
                 text: "Om",
                 correct: false
@@ -40,7 +40,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "Sam Vimes fights the summoning dark with?",
+        question: "Sam Vimes fights the summoning dark with the... in 'Thud'?",
         answers: [{
                 text: "Patrolling Dark",
                 correct: false
@@ -100,7 +100,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "What was the name of the magical sword Rincewind uses in Colour of Magic?",
+        question: "What was the name of the magical sword Rincewind uses in 'Colour of Magic'?",
         answers: [{
                 text: "Krying",
                 correct: false
@@ -120,7 +120,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "What is the petname Moist uses for his wife?",
+        question: "What is the petname Moist von Lipwig uses for his wife?",
         answers: [{
                 text: "Dora",
                 correct: false
@@ -160,7 +160,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "Who becomes Emporor of The Counterweight Continent at the end of Interesting Times?",
+        question: "Who becomes Emporor of The Counterweight Continent at the end of 'Interesting Times'?",
         answers: [{
                 text: "Cohen the Barbiarian",
                 correct: true
@@ -180,7 +180,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "Lu-Tze is a follower of 'The Way', who is the way named after?",
+        question: "Lu-Tze is a follower of 'The Way', from whom did he learn 'The Way'?",
         answers: [{
                 text: "Mrs Proust",
                 correct: false
@@ -196,6 +196,206 @@ let originalQuestions = [{
             {
                 text: "Mrs. Cosmopolite",
                 correct: true
+            },
+        ]
+    },
+    {
+        question: "What's the name of the best/worst inventor in Discworld history?",
+        answers: [{
+                text: "Hubert Turvy",
+                correct: false
+            },
+            {
+                text: "Leonard of Quirm",
+                correct: false
+            },
+            {
+                text: "Pors Stronginthearm",
+                correct: false
+            },
+            {
+                text: "Bergholt Stuttley (Bloody Stupid) Johnson",
+                correct: true
+            },
+        ]
+    },
+    {
+        question: "Why is the 25th of May important?",
+        answers: [{
+                text: "Republic of Treacle Mine Road",
+                correct: true
+            },
+            {
+                text: "Reg Shoe became a zombie",
+                correct: false
+            },
+            {
+                text: "Hard boiled eggs",
+                correct: false
+            },
+            {
+                text: "John Keel died",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Who is the farther of Archchancellor Coin?",
+        answers: [{
+                text: "Mustrum Ridcully",
+                correct: false
+            },
+            {
+                text: "Drum Billet",
+                correct: false
+            },
+            {
+                text: "Ipslore The Red",
+                correct: true
+            },
+            {
+                text: "Alberto Malich",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What is Tiffany Achings talent?",
+        answers: [{
+                text: "Spinning",
+                correct: false
+            },
+            {
+                text: "Cheese Making",
+                correct: true
+            },
+            {
+                text: "Sewing",
+                correct: false
+            },
+            {
+                text: "Magic",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What is the name of Granny Weatherwax cats?",
+        answers: [{
+                text: "You",
+                correct: true
+            },
+            {
+                text: "Greebo",
+                correct: false
+            },
+            {
+                text: "Come here",
+                correct: false
+            },
+            {
+                text: "Cat",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "How many husbands has Nanny Ogg had?",
+        answers: [{
+                text: "Two",
+                correct: false
+            },
+            {
+                text: "Three",
+                correct: true
+            },
+            {
+                text: "Four",
+                correct: false
+            },
+            {
+                text: "Five",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "Who explores/lives in 'The Travelling Now'?",
+        answers: [{
+                text: "Tiffany Aching",
+                correct: false
+            },
+            {
+                text: "Simon",
+                correct: false
+            },
+            {
+                text: "Eskarina Smith",
+                correct: true
+            },
+            {
+                text: "Agnes Nitt",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "What is the name of The Auditor that helps save humanity in 'The Thief of Time'?",
+        answers: [{
+                text: "Myria LeJoan",
+                correct: false
+            },
+            {
+                text: "Myriad LeJean",
+                correct: false
+            },
+            {
+                text: "Myra LeJoan",
+                correct: false
+            },
+            {
+                text: "Myria LeJean",
+                correct: true
+            },
+        ]
+    },
+    {
+        question: "Whats the name of Lord Vetinaris dog?",
+        answers: [{
+                text: "Gaspode",
+                correct: false
+            },
+            {
+                text: "Mr Fusspot",
+                correct: false
+            },
+            {
+                text: "Wuffles",
+                correct: true
+            },
+            {
+                text: "Laddie",
+                correct: false
+            },
+        ]
+    },
+    {
+        question: "In the TV adaption of 'The Hogfather' who played Lord Vetinari?",
+        answers: [{
+                text: "Charles Dance",
+                correct: true
+            },
+            {
+                text: "Bill Nighy",
+                correct: false
+            },
+            {
+                text: "Jeremy Irons",
+                correct: false
+            },
+            {
+                text: "Jeremy Irons",
+                correct: false
             },
         ]
     }
@@ -233,7 +433,7 @@ function startQuiz() {
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions again after resetting
     // Select the first three questions from the shuffled array
-    questions = questions.slice(0, 7);
+    questions = questions.slice(0, 15);
     showQuestion();
 }
 // Add resetQuestions function to reset the questions array to its original state
