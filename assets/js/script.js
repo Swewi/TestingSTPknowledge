@@ -410,8 +410,8 @@ const quizSection = document.getElementById("quiz-section");
 
 let currentQuestionIndex = 0;
 let score = 0;
-
-let questions = originalQuestions.slice(); // Copy the original questions array
+let username;
+let questions = [];
 
 // Shuffle function
 function shuffle(array) {
@@ -421,26 +421,24 @@ function shuffle(array) {
     }
     return array;
 }
-// Shuffle the questions array
-shuffle(questions);
-// Start function
+
+// Start quiz function
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
-    shuffle(questions); // Shuffle the questions again after resetting
-    // Select the first three questions from the shuffled array
-    questions = questions.slice(0, 15);
+    shuffle(questions); // Shuffle the questions
+    // Select the first 15 questions from the shuffled array or all if less than 15
+    questions = questions.slice(0, Math.min(15, questions.length));
     showQuestion();
 }
-// Add resetQuestions function to reset the questions array to its original state
+
+// Reset questions function
 function resetQuestions() {
-    questions = originalQuestions.slice();
-    shuffle(questions); // Shuffle the questions again after resetting
+    questions = originalQuestions.slice(); // Copy the original questions array
 }
-// Making username/front page work
-let username;
+
 // Username entry and storing
 enterButton.onclick = function () {
     username = document.getElementById("username").value;
@@ -454,12 +452,13 @@ enterButton.onclick = function () {
         alert("Please enter your name!"); // Show an alert if username is empty
     }
 }
-// Making the buttons function, and change
+
+// Show question function
 function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
-    let questionno = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionno + ". " + currentQuestion.question;
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -472,14 +471,16 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 }
-// Resetting the answer button options
+
+// Reset state function
 function resetState() {
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild)
-    };
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
 }
 
+// Select answer function
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -497,24 +498,21 @@ function selectAnswer(e) {
     });
     nextButton.style.display = "block";
 }
-// Completing the question cycle
-// Add resetQuestions function to reset the questions array to its original state
-function resetQuestions() {
-    questions = originalQuestions.slice();
-}
 
+// Show score function
 function showScore() {
     resetState();
-    if (score >= 1){
-    questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
-    }else{
-        questionElement.innerHTML = `${username}, you didn't answer any right, sorry`
+    if (score >= 1) {
+        questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
+    } else {
+        questionElement.innerHTML = `${username}, you didn't answer any right, you might need to do some further reading!`
     }
     nextButton.innerHTML = "Play Again?";
     nextButton.style.display = "block";
     homeButton.style.display = "block";
 }
 
+// Handle next button function
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -525,6 +523,7 @@ function handleNextButton() {
     }
 }
 
+// Event listener for next button
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
@@ -533,4 +532,4 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-startQuiz();
+startQuiz(); // Start the quiz initially

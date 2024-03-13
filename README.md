@@ -16,11 +16,13 @@ The interface for this is a very simple multi-choice option, one answer is corre
 
 For this project, I made the decision to not use any images, I made this decision based on known copyright issues with images, the estate is, understandably, quite strict about this.
 
-The colour choices made are loosely based on Rincwind and some of his comments, but mostly based on personal choice, and trying to minimise optical issues.
+The colour choices made are loosely based on Rincewind and some of his comments, but mostly based on personal choice, and trying to minimise optical issues.
 
 ## Features
 
 As a multi-choice question based quiz the features of this site are quite minimal.  I have done this on purpose, I wanted to ensure I had a workable site that functioned the way I needed it to on the due date.  As such it is a very simple interface that allows you to enter your name, and asks 15 random questions from the available list, the questions asked are not repeated within a round, and are randomised within the list.
+
+I have made the buttons so that once an answer is selected it is locked in and releases the next option, it will highlight the button, green for correct, and red for incorrect.  An incorrect answer will also show the correct answer highlighted in green.
 
 # Technologies
 
@@ -63,6 +65,14 @@ I have checked the Javascript using the console within dev tools - There were so
 
 I have tried to ensure regular commits occured and that things have been commented correctly.
 
+I understand that the javascript is messy, for this I apologise, it is this way because initially I built this as a linear question quiz and then added the random elements and username section.  This may have caused some repation that I haven't caught.
+
+I have the questions used for this quiz within the same page as the logic, I understand this is not considered correct procedure.  I have done it this way for this short quiz, but as I expand it further I will remedy this by moving to a separate sheet/api and importing.
+
+I have left the built in alert() currently, this is because of the time sensativity, as I build this out as a version 2 I will make the username alert much better.
+
+![Lighthouse output.](assets/images/stpoverall.png) This is the overall output from Lighthouse for the website.
+
 ![Lighthouse output.](assets/images/stpaccess.png)
 
 ## Browser testing
@@ -75,5 +85,3 @@ Firefox - Works well, looks good, can't find any issues.
 Opera GX - Works well, looks good, can't find any issues.
 
 I haven't been able to check Safari.
-
-need to look at features add game play stuff...
