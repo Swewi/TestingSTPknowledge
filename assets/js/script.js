@@ -505,7 +505,11 @@ function resetQuestions() {
 
 function showScore() {
     resetState();
+    if (score >= 1){
     questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
+    }else{
+        questionElement.innerHTML = `${username}, you didn't answer any right, sorry`
+    }
     nextButton.innerHTML = "Play Again?";
     nextButton.style.display = "block";
     homeButton.style.display = "block";

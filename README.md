@@ -76,3 +76,4 @@ Opera GX - Works well, looks good, can't find any issues.
 
 I haven't been able to check Safari.
 
+need to look at features add game play stuff...
