@@ -56,7 +56,7 @@ I have run tests checking accessibility of the site using:
 * Colour blind check - the site looked good, was readable.
 * Vision Imparied - the use of alt-tags and aria-labels to throughout.
 
-## Code
+## Code and Validation
 I have checked the HTML using W3C HTML validator - There were no issues.
 
 I have checked the CSS using W3C CSS validator - There were no issues.
@@ -65,17 +65,24 @@ I have checked the Javascript using the console within dev tools - There were so
 
 I have tried to ensure regular commits occured and that things have been commented correctly.
 
-I understand that the javascript is messy, for this I apologise, it is this way because initially I built this as a linear question quiz and then added the random elements and username section.  This may have caused some repation that I haven't caught.
+I understand that the javascript is messy, for this I apologise, it is this way because initially I built this as a linear question quiz and then added the random elements and username section.  This may have caused some repation that I haven't caught, I have tried to clean and tidy things up as best I can.
 
 I have the questions used for this quiz within the same page as the logic, I understand this is not considered correct procedure.  I have done it this way for this short quiz, but as I expand it further I will remedy this by moving to a separate sheet/api and importing.
 
 I have left the built in alert() currently, this is because of the time sensativity, as I build this out as a version 2 I will make the username alert much better.
 
-![Lighthouse output.](assets/images/stpoverall.png) This is the overall output from Lighthouse for the website.
+## Lighthouse Output
+
+This is the overall output from Lighthouse for the website.
+
+![Lighthouse output.](assets/images/stpoverall.png)     
+
+This is the output for accessibility.
 
 ![Lighthouse output.](assets/images/stpaccess.png)
 
 ## Browser testing
+
 Google Chrome - Works well, looks good, can't find any issues.
 
 Edge - Works well, looks good, can't find any issues.
@@ -84,4 +91,22 @@ Firefox - Works well, looks good, can't find any issues.
 
 Opera GX - Works well, looks good, can't find any issues.
 
-I haven't been able to check Safari.
+I haven't been able to check Safari.  It won't install on this laptop.
+
+# Deployment
+
+The site was deployed to GitHub pages.  The steps to deploy are as follows:
+***
+* In the GitHub repository, navigate to the Settings tab.
+* From the source section in the drop-down menu, select the Master Branch,
+* Once the Master Branch is selected, the link provided on the page is completed website.
+
+[Click here](https://swewi.github.io/TestingSTPknowledge/) to go to live website.
+
+# Credits
+
+## Inspiration
+***
+* My mentor Ronan, plenty of help where needed, specifically around basic structure, and project scope.
+* Code Institute, for The Love Math example.
+* Great Stack YouTube channel, How To Make Quiz App Using JavaScript.

@@ -40,7 +40,7 @@ let originalQuestions = [{
         ]
     },
     {
-        question: "Sam Vimes fights the summoning dark with the... in 'Thud'?",
+        question: "Sam Vimes fights the summoning dark with the help of ___ in 'Thud'?",
         answers: [{
                 text: "Patrolling Dark",
                 correct: false
