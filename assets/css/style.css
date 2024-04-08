@@ -130,19 +130,6 @@ input {
   display: block;
 }
 
-#home-btn {
-  background: #8df0f4;
-  color: #000;
-  font-weight: 500;
-  width: 150px;
-  border: 0;
-  padding: 10px;
-  margin: 20px auto 0;
-  border-radius: 4px;
-  cursor: pointer;
-  display: none;
-}
-
 .correct {
   background: rgb(121, 217, 121);
 }
