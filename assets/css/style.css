@@ -66,6 +66,12 @@ input {
   border-radius: 4px;
   cursor: pointer;
   display: block;
+  transition: background 0.3s, color 0.3s; /* Adding transition for smooth hover effect */
+}
+
+#enter-btn:hover {
+  background: #759a76; /* Change background color on hover */
+  color: #ffffff; /* Change text color on hover */
 }
 
 /* Styling the game area */
@@ -138,18 +144,28 @@ input {
   background: rgb(247, 45, 45);
 }
 
-#replay-btn{
+#replay-btn {
+  background: #0d1068;
+  color: #fff;
+  font-weight: 500;
   width: 150px;
   border: 0;
   padding: 10px;
   margin: 20px auto 0;
   border-radius: 4px;
+  cursor: pointer;
+  display: none;
 }
 
-#exit-btn{
+#exit-btn {
+  background: #75300a;
+  color: #fff;
+  font-weight: 500;
   width: 150px;
   border: 0;
   padding: 10px;
   margin: 20px auto 0;
   border-radius: 4px;
+  cursor: pointer;
+  display: none;
 }
