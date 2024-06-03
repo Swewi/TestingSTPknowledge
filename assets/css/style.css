@@ -100,6 +100,22 @@ input {
   padding: 20px 0;
 }
 
+/* Timer countdown */
+
+#progress-container {
+  width: 100%;
+  background-color: rgba(251, 249, 249, 0.5);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+#progress-bar {
+  height: 20px;
+  width: 0;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
 .btn {
   background: #d5d4d4;
   color: #000;

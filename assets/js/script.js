@@ -11,12 +11,14 @@ const enterButton = document.getElementById("enter-btn");
 const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
 const highscoreElement = document.getElementById("highscore"); // High Score Element
+const progressBar = document.getElementById("progress-bar"); // Progress Bar Element
 
 let currentQuestionIndex = 0;
 let score = 0;
 let username;
 let questions = [];
 let highscore = 0;
+let timerInterval;
 
 // Load high score from local storage
 function loadHighScore() {
@@ -100,6 +102,9 @@ function showQuestion() {
         }
         button.addEventListener("click", selectAnswer);
     });
+
+    // Start the timer for each question
+    startTimer();
 }
 
 // Reset state function
@@ -110,6 +115,8 @@ function resetState() {
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
+    // Reset progress bar
+    resetProgressBar();
 }
 
 // Select answer function
@@ -129,6 +136,9 @@ function selectAnswer(e) {
         button.disabled = true;
     });
     nextButton.style.display = "block";
+
+    // Stop the timer
+    stopTimer();
 }
 
 // Show score function
@@ -198,6 +208,52 @@ exitButton.addEventListener("click", () => {
     highscoreElement.innerHTML = "High Score: 0";
     highscore = 0; // Reset highscore variable
 });
+
+// Timer functions
+function startTimer() {
+    let time = 0;
+    progressBar.style.width = "0%";
+    progressBar.style.backgroundColor = "#4caf50";
+
+    timerInterval = setInterval(() => {
+        time += 1;
+        const progress = (time / 100) * 100;
+        progressBar.style.width = `${progress}%`;
+
+        if (progress > 85) {
+            progressBar.style.backgroundColor = "#CC0000"; // Red color
+        } else if (progress > 60) {
+            progressBar.style.backgroundColor = "#ABAF4C"; // Yellow color
+        } else {
+            progressBar.style.backgroundColor = "#504caf"; // Green color
+        }
+
+        if (progress >= 100) {
+            clearInterval(timerInterval);
+            lockQuestion();
+        }
+    }, 100);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function resetProgressBar() {
+    clearInterval(timerInterval);
+    progressBar.style.width = "0%";
+    progressBar.style.backgroundColor = "#4caf50";
+}
+
+function lockQuestion() {
+    Array.from(answerButtons.children).forEach((button) => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
 
 // Initial call to start the quiz
 startQuiz();
