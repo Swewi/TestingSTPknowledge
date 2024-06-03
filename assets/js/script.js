@@ -23,16 +23,20 @@ function loadHighScore() {
     const storedHighScore = localStorage.getItem(username);
     if (storedHighScore) {
         highscore = parseInt(storedHighScore, 10);
-        highscoreElement.innerHTML = `High Score: ${highscore}`;
+    } else {
+        highscore = 0;
     }
+    highscoreElement.innerHTML = `High Score: ${highscore}`;
 }
 
 // Save high score to local storage
 function saveHighScore() {
+    console.log(`Checking if score ${score} is greater than highscore ${highscore}`); // Monitoring score and high score
     if (score > highscore) {
         highscore = score;
         localStorage.setItem(username, highscore);
         highscoreElement.innerHTML = `High Score: ${highscore}`;
+        console.log(`New highscore set: ${highscore}`);
     }
 }
 
@@ -52,7 +56,7 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions
-    // Select the first 15 questions from the shuffled array or all if less than 15
+    // Select the first 5 questions from the shuffled array or all if less than 5
     questions = questions.slice(0, Math.min(5, questions.length)); //set to 5 for testing
     showQuestion();
 }
@@ -130,13 +134,24 @@ function selectAnswer(e) {
 // Show score function
 function showScore() {
     resetState();
-    if (score >= 1) {
-        questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
+    let message = "";
+
+    console.log(`Final score: ${score}, Highscore: ${highscore}`);  // Monitoring score and highscore
+    if (score > highscore) {
+        highscore = score;
+        localStorage.setItem(username, highscore); // Save the new high score
+        message = `Amazing ${username}, you beat your high score! You scored ${score} out of ${questions.length}!`;
+        console.log("New high score achieved!"); // Monitoring highscore message
+    } else if (score >= 1) {
+        message = `Congratulations ${username}, you scored ${score} out of ${questions.length}.`;
+        console.log("Congrats message shown."); // Monitoring congrats message
     } else {
-        questionElement.innerHTML = `${username}, you didn't answer any right, you might need to do some further reading!`;
+        message = `${username}, you didn't answer any right. You might need to do some further reading!`;
+        console.log("Encouragement message shown."); // Monitoring encouragement message
     }
-    // Save the high score
-    saveHighScore();
+
+    highscoreElement.innerHTML = `High Score: ${highscore}`; // Update the high score display
+    questionElement.innerHTML = message;
     replayButton.innerHTML = "Play Again?";
     replayButton.style.display = "block"; // Show Replay button
     exitButton.style.display = "block"; // Show Exit button
@@ -149,6 +164,7 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
+        saveHighScore(); // Ensure high score is saved at the end
     }
 }
 
@@ -158,6 +174,7 @@ nextButton.addEventListener("click", () => {
         handleNextButton();
     } else {
         showScore();
+        saveHighScore(); // Ensure high score is saved at the end
     }
 });
 
@@ -179,6 +196,7 @@ exitButton.addEventListener("click", () => {
     exitButton.style.display = "none"; // Hide Exit button
     // Reset highscore display
     highscoreElement.innerHTML = "High Score: 0";
+    highscore = 0; // Reset highscore variable
 });
 
 // Initial call to start the quiz
