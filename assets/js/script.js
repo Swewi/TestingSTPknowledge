@@ -1,10 +1,12 @@
 // Importing the questions array
-import { originalQuestions } from './quizQuestions.js';
+import { originalQuestions } from "./quizQuestions.js";
 
 // Defining game elements
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const replayButton = document.getElementById("replay-btn"); // New Replay Button
+const exitButton = document.getElementById("exit-btn"); // New Exit Button
 const enterButton = document.getElementById("enter-btn");
 const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
@@ -30,8 +32,8 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions
-    // Select the first 15 questions from the shuffled array or all if less than 15
-    questions = questions.slice(0, Math.min(15, questions.length));
+    // Select the first 5 questions from the shuffled array - for tessting I set this to 5
+    questions = questions.slice(0, Math.min(5, questions.length));
     showQuestion();
 }
 
@@ -43,7 +45,8 @@ function resetQuestions() {
 // Username entry and storing
 enterButton.onclick = function () {
     username = document.getElementById("username").value;
-    if (username.trim() !== '') { // Check if username is not empty
+    if (username.trim() !== "") {
+        // Check if username is not empty
         // Hide username section and show quiz section
         usernameSection.style.display = "none";
         quizSection.style.display = "block";
@@ -52,7 +55,7 @@ enterButton.onclick = function () {
     } else {
         alert("Please enter your name!"); // Show an alert if username is empty
     }
-}
+};
 
 // Show question function
 function showQuestion() {
@@ -61,7 +64,7 @@ function showQuestion() {
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentQuestion.answers.forEach(answer => {
+    currentQuestion.answers.forEach((answer) => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
@@ -76,6 +79,8 @@ function showQuestion() {
 // Reset state function
 function resetState() {
     nextButton.style.display = "none";
+    replayButton.style.display = "none"; // Hide Replay button
+    exitButton.style.display = "none"; // Hide Exit button
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -91,7 +96,7 @@ function selectAnswer(e) {
     } else {
         selectedBtn.classList.add("incorrect");
     }
-    Array.from(answerButtons.children).forEach(button => {
+    Array.from(answerButtons.children).forEach((button) => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
@@ -106,10 +111,11 @@ function showScore() {
     if (score >= 1) {
         questionElement.innerHTML = `Congratulations ${username}, you scored ${score} out of ${questions.length}!`;
     } else {
-        questionElement.innerHTML = `${username}, you didn't answer any right, you might need to do some further reading!`
+        questionElement.innerHTML = `${username}, you didn't answer any right, you might need to do some further reading!`;
     }
-    nextButton.innerHTML = "Play Again?";
-    nextButton.style.display = "block";
+    replayButton.innerHTML = "Play Again?";
+    replayButton.style.display = "block"; // Show Replay button
+    exitButton.style.display = "block"; // Show Exit button
 }
 
 // Handle next button function
@@ -119,7 +125,6 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
-        resetQuestions(); // Reset the questions array
     }
 }
 
@@ -128,8 +133,27 @@ nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        startQuiz();
+        showScore();
     }
 });
 
-startQuiz(); // Start the quiz initially
+// Event listener for replay button
+replayButton.addEventListener("click", () => {
+    startQuiz();
+});
+
+// Event listener for exit button
+exitButton.addEventListener("click", () => {
+    // Reset the username section to allow the user to enter the name again
+    usernameSection.style.display = "block";
+    quizSection.style.display = "none";
+    // Optionally clear the username input field
+    document.getElementById("username").value = "";
+    // Reset the button text to "Next"
+    nextButton.innerHTML = "Next";
+    replayButton.style.display = "none"; // Hide Replay button
+    exitButton.style.display = "none"; // Hide Exit button
+});
+
+// Initial call to start the quiz
+startQuiz();
