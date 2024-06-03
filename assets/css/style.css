@@ -144,10 +144,12 @@ input {
   background: rgb(247, 45, 45);
 }
 
+/*  Game end screen */
 #replay-btn {
   background: #0d1068;
   color: #fff;
   font-weight: 500;
+  text-align: center;
   width: 150px;
   border: 0;
   padding: 10px;
@@ -158,9 +160,10 @@ input {
 }
 
 #exit-btn {
-  background: #75300a;
-  color: #fff;
+  background: #0c0703;
+  color: #dc0909;
   font-weight: 500;
+  text-align: center;
   width: 150px;
   border: 0;
   padding: 10px;
@@ -168,4 +171,22 @@ input {
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+
+#exit-btn:hover {
+  background: #dc0909; /* Change background color on hover */
+  color: #0c0703; /* Change text color on hover */
+}
+
+#highscore-section {
+  margin: 1rem auto; /* Center the highscore section vertically and horizontally */
+  padding: 10px;
+  background-color: rgb(37, 36, 34, 0.3);
+  text-align: center;
+  width: 75%;
+}
+
+#highscore {
+    margin: 0 auto; /* Center the high score element within its container */
+    max-width: 200px;
 }

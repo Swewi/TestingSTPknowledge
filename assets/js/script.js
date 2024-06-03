@@ -10,11 +10,31 @@ const exitButton = document.getElementById("exit-btn"); // New Exit Button
 const enterButton = document.getElementById("enter-btn");
 const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
+const highscoreElement = document.getElementById("highscore"); // High Score Element
 
 let currentQuestionIndex = 0;
 let score = 0;
 let username;
 let questions = [];
+let highscore = 0;
+
+// Load high score from local storage
+function loadHighScore() {
+    const storedHighScore = localStorage.getItem(username);
+    if (storedHighScore) {
+        highscore = parseInt(storedHighScore, 10);
+        highscoreElement.innerHTML = `High Score: ${highscore}`;
+    }
+}
+
+// Save high score to local storage
+function saveHighScore() {
+    if (score > highscore) {
+        highscore = score;
+        localStorage.setItem(username, highscore);
+        highscoreElement.innerHTML = `High Score: ${highscore}`;
+    }
+}
 
 // Shuffle function
 function shuffle(array) {
@@ -32,8 +52,8 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions
-    // Select the first 5 questions from the shuffled array - for tessting I set this to 5
-    questions = questions.slice(0, Math.min(5, questions.length));
+    // Select the first 15 questions from the shuffled array or all if less than 15
+    questions = questions.slice(0, Math.min(5, questions.length)); //set to 5 for testing
     showQuestion();
 }
 
@@ -50,6 +70,8 @@ enterButton.onclick = function () {
         // Hide username section and show quiz section
         usernameSection.style.display = "none";
         quizSection.style.display = "block";
+        // Load high score for the user
+        loadHighScore();
         // Start the quiz
         startQuiz();
     } else {
@@ -113,6 +135,8 @@ function showScore() {
     } else {
         questionElement.innerHTML = `${username}, you didn't answer any right, you might need to do some further reading!`;
     }
+    // Save the high score
+    saveHighScore();
     replayButton.innerHTML = "Play Again?";
     replayButton.style.display = "block"; // Show Replay button
     exitButton.style.display = "block"; // Show Exit button
@@ -153,6 +177,8 @@ exitButton.addEventListener("click", () => {
     nextButton.innerHTML = "Next";
     replayButton.style.display = "none"; // Hide Replay button
     exitButton.style.display = "none"; // Hide Exit button
+    // Reset highscore display
+    highscoreElement.innerHTML = "High Score: 0";
 });
 
 // Initial call to start the quiz
