@@ -46,7 +46,7 @@ function saveHighScore() {
     }
 }
 
-// Shuffle function
+// Shuffle function  -  Fisher-Yates Sorting Algorithm
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -55,7 +55,7 @@ function shuffle(array) {
     return array;
 }
 
-// Start quiz function
+// Start quiz function  --  based on Great Stack - JS quiz app, adapted with further function
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -108,7 +108,7 @@ enterButton.onclick = function () {
     }
 };
 
-// Show question function
+// Show question function  --  based on Great Stack - JS quiz app, adapted with further function
 function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -144,7 +144,7 @@ function resetState() {
     progressBar.style.visibility = "visible";
 }
 
-// Select answer function
+// Select answer function  --  based on Great Stack - JS quiz app, adapted with further function
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -191,7 +191,7 @@ function showScore() {
     progressBar.style.display = "none";
 }
 
-// Handle next button function
+// Handle next button function  --  based on Great Stack - JS quiz app, adapted with further function
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -202,7 +202,7 @@ function handleNextButton() {
     }
 }
 
-// Event listener for next button
+// Event listener for next button  --  based on Great Stack - JS quiz app, adapted with further function
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();

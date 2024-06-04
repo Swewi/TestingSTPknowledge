@@ -81,6 +81,8 @@ This is a list of technologies used during the construction and testing of the s
 * [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) to check CSS code.
 * Code Institute's Gitpod Template to generate the workspace for the project.
 * Stack Overflow to find out more about markdown and image displaying.
+* [freeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/) For the shuffle function
+* [DEV](https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj) Same function different source
 
 # Testing
 
