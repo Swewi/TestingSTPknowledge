@@ -62,8 +62,8 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions
-    // Select the first 5 questions from the shuffled array
-    questions = questions.slice(0, Math.min(5, questions.length)); //set to 5 for testing
+    // Select the first 15 questions from the shuffled array
+    questions = questions.slice(0, Math.min(15, questions.length));
     showQuestion();
 }
 
