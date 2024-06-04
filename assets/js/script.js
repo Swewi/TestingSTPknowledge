@@ -1,5 +1,7 @@
 // Importing the questions array
-import { originalQuestions } from "./quizQuestions.js";
+import {
+    originalQuestions
+} from "./quizQuestions.js";
 
 // Defining game elements
 const questionElement = document.getElementById("question");
@@ -12,6 +14,7 @@ const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
 const highscoreElement = document.getElementById("highscore"); // High Score Element
 const progressBar = document.getElementById("progress-bar"); // Progress Bar Element
+const difficultySection = document.getElementById("difficulty-section"); // Difficulty Section
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -19,6 +22,8 @@ let username;
 let questions = [];
 let highscore = 0;
 let timerInterval;
+let difficulty;
+let timerDuration;
 
 // Load high score from local storage
 function loadHighScore() {
@@ -57,7 +62,7 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     resetQuestions(); // Reset the questions array
     shuffle(questions); // Shuffle the questions
-    // Select the first 5 questions from the shuffled array or all if less than 5
+    // Select the first 5 questions from the shuffled array
     questions = questions.slice(0, Math.min(5, questions.length)); //set to 5 for testing
     showQuestion();
 }
@@ -70,13 +75,32 @@ function resetQuestions() {
 // Username entry and storing
 enterButton.onclick = function () {
     username = document.getElementById("username").value;
+    difficulty = document.getElementById("difficulty").value;
+
     if (username.trim() !== "") {
-        // Check if username is not empty
-        // Hide username section and show quiz section
+        // Set timer duration based on difficulty
+        switch (difficulty) {
+            case "easy":
+                timerDuration = 150; // Easy: 150 ticks (15 seconds)
+                break;
+            case "medium":
+                timerDuration = 100; // Medium: 100 ticks (10 seconds)
+                break;
+            case "hard":
+                timerDuration = 70; // Hard: 70 ticks (7 seconds)
+                break;
+            default:
+                timerDuration = 150; // Default to Easy
+        }
+
+        // Hide username and difficulty sections and show quiz section
         usernameSection.style.display = "none";
+        difficultySection.style.display = "none";
         quizSection.style.display = "block";
+
         // Load high score for the user
         loadHighScore();
+
         // Start the quiz
         startQuiz();
     } else {
@@ -197,6 +221,7 @@ replayButton.addEventListener("click", () => {
 exitButton.addEventListener("click", () => {
     // Reset the username section to allow the user to enter the name again
     usernameSection.style.display = "block";
+    difficultySection.style.display = "block"; // Show difficulty section
     quizSection.style.display = "none";
     // Optionally clear the username input field
     document.getElementById("username").value = "";
@@ -218,7 +243,7 @@ function startTimer() {
 
     timerInterval = setInterval(() => {
         time += 1;
-        const progress = (time / 100) * 100;
+        const progress = (time / timerDuration) * 100;
         progressBar.style.width = `${progress}%`;
 
         if (progress > 85) {
@@ -256,6 +281,11 @@ function lockQuestion() {
     });
     nextButton.style.display = "block";
 }
+
+// Initial call to hide the quiz section and show the difficulty section
+quizSection.style.display = "none";
+difficultySection.style.display = "block"; // Show difficulty section on page load
+
 
 // Initial call to start the quiz
 startQuiz();

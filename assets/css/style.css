@@ -55,6 +55,25 @@ input {
   background: #d5d4d4;
 }
 
+#difficulty-section {
+  margin: 1em;
+}
+
+#difficulty-section label {
+  font-size: x-large;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#difficulty-section select {
+  padding: 5px;
+  border: 1px solid #bab6b6;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #d5d4d4
+}
+
 #enter-btn {
   background: #92ad94;
   color: #3a3838;
