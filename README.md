@@ -73,13 +73,13 @@ I have left the built in alert() currently, this is because of the time sensativ
 
 ## Lighthouse Output
 
-This is the overall output from Lighthouse for the website.
+This is the Lighthouse output for the desktop site.
 
-![Lighthouse output.](assets/images/stpoverall.png)     
+![Lighthouse output.](assets/images/desktop-stp-overall.png)     
 
-This is the output for accessibility.
+This is the Lighthouse output for the mobil site.
 
-![Lighthouse output.](assets/images/stpaccess.png)
+![Lighthouse output.](assets/images/mobil-stp-overall.png)
 
 ## Browser testing
 

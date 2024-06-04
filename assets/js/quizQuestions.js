@@ -242,7 +242,7 @@ export const originalQuestions = [
     ]
 },
 {
-    question: "Who is the farther of Archchancellor Coin?",
+    question: "Who is the father of Archchancellor Coin?",
     answers: [{
             text: "Mustrum Ridcully",
             correct: false

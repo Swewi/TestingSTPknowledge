@@ -81,16 +81,16 @@ enterButton.onclick = function () {
         // Set timer duration based on difficulty
         switch (difficulty) {
             case "easy":
-                timerDuration = 150; // Easy: 150 ticks (15 seconds)
+                timerDuration = 200; // Easy: 200 ticks (20 seconds)
                 break;
             case "medium":
-                timerDuration = 100; // Medium: 100 ticks (10 seconds)
+                timerDuration = 150; // Medium: 150 ticks (15 seconds)
                 break;
             case "hard":
-                timerDuration = 70; // Hard: 70 ticks (7 seconds)
+                timerDuration = 100; // Hard: 100 ticks (10 seconds)
                 break;
             default:
-                timerDuration = 150; // Default to Easy
+                timerDuration = 200; // Default to Easy
         }
 
         // Hide username and difficulty sections and show quiz section
