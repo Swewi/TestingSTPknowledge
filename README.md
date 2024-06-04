@@ -65,11 +65,9 @@ I have checked the Javascript using the console within dev tools - There were so
 
 I have tried to ensure regular commits occured and that things have been commented correctly.
 
-I understand that the javascript is messy, for this I apologise, it is this way because initially I built this as a linear question quiz and then added the random elements and username section.  This may have caused some repation that I haven't caught, I have tried to clean and tidy things up as best I can.
+In order to maintain readability I have separated the questions from the base logic, this helps to easily check for errors and spelling mistakes.
 
-I have the questions used for this quiz within the same page as the logic, I understand this is not considered correct procedure.  I have done it this way for this short quiz, but as I expand it further I will remedy this by moving to a separate sheet/api and importing.
-
-I have left the built in alert() currently, this is because of the time sensativity, as I build this out as a version 2 I will make the username alert much better.
+I have left the built in alert() currently, as I build this out as a version 2 I will make the username alert much better.
 
 ## Lighthouse Output
 
@@ -81,6 +79,8 @@ This is the Lighthouse output for the mobil site.
 
 ![Lighthouse output.](assets/images/mobil-stp-overall.png)
 
+As you can see this site is currently showing 100% accessabilty for both Mobile and Desktop.
+
 ## Browser testing
 
 Google Chrome - Works well, looks good, can't find any issues.
@@ -90,8 +90,6 @@ Edge - Works well, looks good, can't find any issues.
 Firefox - Works well, looks good, can't find any issues.
 
 Opera GX - Works well, looks good, can't find any issues.
-
-I haven't been able to check Safari.  It won't install on this laptop.
 
 # Deployment
 
