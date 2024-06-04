@@ -33,7 +33,6 @@ function loadHighScore() {
 
 // Save high score to local storage
 function saveHighScore() {
-    console.log(`Checking if score ${score} is greater than highscore ${highscore}`); // Monitoring score and high score
     if (score > highscore) {
         highscore = score;
         localStorage.setItem(username, highscore);
@@ -117,6 +116,8 @@ function resetState() {
     }
     // Reset progress bar
     resetProgressBar();
+    // Ensure progress bar is visible when resetting state
+    progressBar.style.visibility = "visible";
 }
 
 // Select answer function
@@ -146,18 +147,14 @@ function showScore() {
     resetState();
     let message = "";
 
-    console.log(`Final score: ${score}, Highscore: ${highscore}`);  // Monitoring score and highscore
     if (score > highscore) {
         highscore = score;
         localStorage.setItem(username, highscore); // Save the new high score
         message = `Amazing ${username}, you beat your high score! You scored ${score} out of ${questions.length}!`;
-        console.log("New high score achieved!"); // Monitoring highscore message
     } else if (score >= 1) {
         message = `Congratulations ${username}, you scored ${score} out of ${questions.length}.`;
-        console.log("Congrats message shown."); // Monitoring congrats message
     } else {
         message = `${username}, you didn't answer any right. You might need to do some further reading!`;
-        console.log("Encouragement message shown."); // Monitoring encouragement message
     }
 
     highscoreElement.innerHTML = `High Score: ${highscore}`; // Update the high score display
@@ -165,6 +162,9 @@ function showScore() {
     replayButton.innerHTML = "Play Again?";
     replayButton.style.display = "block"; // Show Replay button
     exitButton.style.display = "block"; // Show Exit button
+
+    // Hide progress bar at the end of the quiz
+    progressBar.style.display = "none";
 }
 
 // Handle next button function
@@ -214,6 +214,7 @@ function startTimer() {
     let time = 0;
     progressBar.style.width = "0%";
     progressBar.style.backgroundColor = "#4caf50";
+    progressBar.style.visibility = "visible"; // Ensure progress bar is visible when starting timer
 
     timerInterval = setInterval(() => {
         time += 1;
@@ -243,6 +244,7 @@ function resetProgressBar() {
     clearInterval(timerInterval);
     progressBar.style.width = "0%";
     progressBar.style.backgroundColor = "#4caf50";
+    progressBar.style.display = "block"; // Ensure progress bar is visible when resetting
 }
 
 function lockQuestion() {
