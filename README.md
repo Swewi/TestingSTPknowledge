@@ -52,6 +52,8 @@ I have made the buttons so that once an answer is selected, or the timer runs ou
 
 A countdown timer is displayed on the play field, different colours show how close to running out of time you are for each question, the time per question is regulated by your difficulty selection at the begining.
 
+- Based on some player feedback I have extended the timers on all difficulty levels as people commented they had some difficulty reading the questions and answers in time.  The other main comment was that a bar like that can cause anxiety in neuro-diverse people and I acknowledge this, moving forward I will come up with viable solutions.
+
 ## Future Features
 
 Speaking with some users - changing the difficulty selector to change the question base and keep the timer constant.
