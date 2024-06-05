@@ -14,7 +14,7 @@ const usernameSection = document.getElementById("username-section");
 const quizSection = document.getElementById("quiz-section");
 const highscoreElement = document.getElementById("highscore"); // High Score Element
 const progressBar = document.getElementById("progress-bar"); // Progress Bar Element
-const difficultySection = document.getElementById("difficulty-section"); // Difficulty Section
+const difficultySection = document.getElementById("difficulty-section"); // Difficulty Selector
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -81,16 +81,16 @@ enterButton.onclick = function () {
         // Set timer duration based on difficulty
         switch (difficulty) {
             case "easy":
-                timerDuration = 200; // Easy: 200 ticks (20 seconds)
+                timerDuration = 250; // Easy: 250 ticks (25 seconds)
                 break;
             case "medium":
-                timerDuration = 150; // Medium: 150 ticks (15 seconds)
+                timerDuration = 200; // Medium: 200 ticks (20 seconds)
                 break;
             case "hard":
-                timerDuration = 100; // Hard: 100 ticks (10 seconds)
+                timerDuration = 150; // Hard: 150 ticks (15 seconds)
                 break;
             default:
-                timerDuration = 200; // Default to Easy
+                timerDuration = 250; // Default to Easy
         }
 
         // Hide username and difficulty sections and show quiz section
@@ -178,7 +178,7 @@ function showScore() {
     } else if (score >= 1) {
         message = `Congratulations ${username}, you scored ${score} out of ${questions.length}.`;
     } else {
-        message = `${username}, you didn't answer any right. You might need to do some further reading!`;
+        message = `Oh!, ${username}, you didn't answer any right. You might need to do some further reading!`;
     }
 
     highscoreElement.innerHTML = `High Score: ${highscore}`; // Update the high score display
@@ -191,26 +191,24 @@ function showScore() {
     progressBar.style.display = "none";
 }
 
-// Handle next button function  --  based on Great Stack - JS quiz app, adapted with further function
+function showScoreAndButtons() {
+    showScore();
+    saveHighScore(); // Ensure high score is saved at the end
+    replayButton.innerHTML = "Play Again?";
+    replayButton.style.display = "block"; // Show Replay button
+    exitButton.style.display = "block"; // Show Exit button
+}
+
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
-        showScore();
-        saveHighScore(); // Ensure high score is saved at the end
+        showScoreAndButtons();
     }
 }
 
-// Event listener for next button  --  based on Great Stack - JS quiz app, adapted with further function
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
-    } else {
-        showScore();
-        saveHighScore(); // Ensure high score is saved at the end
-    }
-});
+nextButton.addEventListener("click", handleNextButton);
 
 // Event listener for replay button
 replayButton.addEventListener("click", () => {
@@ -221,7 +219,7 @@ replayButton.addEventListener("click", () => {
 exitButton.addEventListener("click", () => {
     // Reset the username section to allow the user to enter the name again
     usernameSection.style.display = "block";
-    difficultySection.style.display = "block"; // Show difficulty section
+    difficultySection.style.display = "block"; // Show difficulty selector
     quizSection.style.display = "none";
     // Optionally clear the username input field
     document.getElementById("username").value = "";
@@ -266,7 +264,7 @@ function stopTimer() {
 }
 
 function resetProgressBar() {
-    clearInterval(timerInterval);
+    clearInterval(timerInterval); // Clear the existing timer interval
     progressBar.style.width = "0%";
     progressBar.style.backgroundColor = "#4caf50";
     progressBar.style.display = "block"; // Ensure progress bar is visible when resetting
@@ -282,10 +280,7 @@ function lockQuestion() {
     nextButton.style.display = "block";
 }
 
-// Initial call to hide the quiz section and show the difficulty section
 quizSection.style.display = "none";
-difficultySection.style.display = "block"; // Show difficulty section on page load
+difficultySection.style.display = "block";
 
-
-// Initial call to start the quiz
 startQuiz();
